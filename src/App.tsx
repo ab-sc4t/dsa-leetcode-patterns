@@ -82,24 +82,26 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="w-full mt-4 mb-2 px-4">
-        <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-3 rounded text-center">
-          <span className="font-semibold">Note:</span> This app uses your browser's cache (localStorage) to keep track of completed questions. Clearing your cache or localStorage will reset your progress.
-        </div>
-      </div>
       {/* Main App Content */}
       <Header searchTerm={filters.search} onSearchChange={handleSearchChange} />
-      <StatsBar 
-        totalStats={totalStats}
-        categoryStats={categoryStats}
-        categoryName={filters.category}
-        problems={problems}
-      />
-      <FilterBar 
-        filters={filters}
-        onFilterChange={setFilters}
-        categories={categories}
-      />
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="max-w-7xl pt-4 pb-2 mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-800 p-3 rounded text-center">
+            <span className="font-semibold">Note:</span> This app uses your browser's cache (localStorage) to keep track of completed questions. Clearing your cache or localStorage will reset your progress.
+          </div>
+        </div>
+        <StatsBar 
+          totalStats={totalStats}
+          categoryStats={categoryStats}
+          categoryName={filters.category}
+          problems={problems}
+        />
+        <FilterBar 
+          filters={filters}
+          onFilterChange={setFilters}
+          categories={categories}
+        />
+      </div>
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
