@@ -11,6 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "homepage": "https://ab-sc4t.github.io/dsa-leetcode-patterns/",
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",

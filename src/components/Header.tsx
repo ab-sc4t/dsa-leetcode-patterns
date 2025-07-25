@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ searchTerm, onSearchChange }) => {
               <span className="hidden sm:inline">LeetCode</span>
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/ab-sc4t"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-900 transition-colors"
