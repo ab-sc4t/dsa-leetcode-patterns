@@ -6,7 +6,7 @@ export let problems: Problem[] = [];
 // Function to load and process the GitHub data
 export const loadProblemsData = async (): Promise<Problem[]> => {
   try {
-    const response = await fetch('/questions.json');
+    const response = await fetch('/leetcode-patterns/questions.json');
     const data = await response.json();
 
     // Your file has a "data" array of questions
