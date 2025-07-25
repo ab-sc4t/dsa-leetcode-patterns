@@ -17,6 +17,7 @@ function App() {
     category: '',
     completed: ''
   });
+  const [showCacheModal, setShowCacheModal] = useState(true); // Modal state
 
   // Load problems data and progress on mount
   useEffect(() => {
@@ -82,6 +83,27 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Cache Info Modal */}
+      {showCacheModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+          <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full mx-4">
+            <h2 className="text-xl font-semibold mb-2">Notice</h2>
+            <p className="mb-4 text-gray-700 text-justify">
+              This app uses your browser's cache to keep track of completed questions. <br/>
+              <p className="font-semibold text-justify">Clearing your cache or localStorage will reset the status of all questions.</p>
+            </p>
+            <div className="flex justify-end">
+              <button
+                className="mt-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                onClick={() => setShowCacheModal(false)}
+              >
+                Got it!
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Main App Content */}
       <Header searchTerm={filters.search} onSearchChange={handleSearchChange} />
       <StatsBar 
         totalStats={totalStats}
