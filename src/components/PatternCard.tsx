@@ -8,6 +8,11 @@ interface PatternCardProps {
   onToggleComplete: (patternId: string, problemId: number) => void;
 }
 
+interface ProblemItemProps {
+  problem: Problem;
+  onToggleComplete: () => void;
+}
+
 const PatternCard: React.FC<PatternCardProps> = ({ pattern, onToggleComplete }) => {
   const progressPercentage = getProgressPercentage(pattern);
   
@@ -17,7 +22,7 @@ const PatternCard: React.FC<PatternCardProps> = ({ pattern, onToggleComplete }) 
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center space-x-3">
             <div className={`w-12 h-12 ${pattern.color} rounded-lg flex items-center justify-center text-white text-xl font-medium`}>
-              {pattern.icon}
+              {typeof pattern.icon === 'string' ? pattern.icon : <>{pattern.icon}</>}
             </div>
             <div>
               <h3 className="text-xl font-semibold text-gray-900">{pattern.name}</h3>
@@ -39,7 +44,7 @@ const PatternCard: React.FC<PatternCardProps> = ({ pattern, onToggleComplete }) 
         </div>
         
         <div className="space-y-3">
-          {pattern.problems.map((problem) => (
+          {pattern.problems.map((problem: Problem) => (
             <ProblemItem
               key={problem.id}
               problem={problem}
@@ -51,18 +56,13 @@ const PatternCard: React.FC<PatternCardProps> = ({ pattern, onToggleComplete }) 
         <div className="mt-4 pt-4 border-t border-gray-100">
           <div className="flex items-center justify-between text-sm text-gray-500">
             <span>{pattern.problems.length} problems</span>
-            <span>{pattern.problems.filter(p => p.completed).length} completed</span>
+            <span>{pattern.problems.filter((p: Problem) => p.completed).length} completed</span>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
-interface ProblemItemProps {
-  problem: Problem;
-  onToggleComplete: () => void;
-}
 
 const ProblemItem: React.FC<ProblemItemProps> = ({ problem, onToggleComplete }) => {
   return (

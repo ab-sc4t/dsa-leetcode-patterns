@@ -8,6 +8,11 @@ interface ProblemListProps {
   onToggleComplete: (problemId: number) => void;
 }
 
+interface ProblemItemProps {
+  problem: Problem;
+  onToggleComplete: () => void;
+}
+
 const ProblemList: React.FC<ProblemListProps> = ({ problems, onToggleComplete }) => {
   if (problems.length === 0) {
     return (
@@ -31,11 +36,6 @@ const ProblemList: React.FC<ProblemListProps> = ({ problems, onToggleComplete })
     </div>
   );
 };
-
-interface ProblemItemProps {
-  problem: Problem;
-  onToggleComplete: () => void;
-}
 
 const ProblemItem: React.FC<ProblemItemProps> = ({ problem, onToggleComplete }) => {
   return (

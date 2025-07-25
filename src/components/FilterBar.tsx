@@ -1,6 +1,6 @@
 import React from 'react';
 import { Filter, RotateCcw } from 'lucide-react';
-import { FilterState } from '../lib/types';
+import { FilterState, CompletionStatus } from '../lib/types';
 
 interface FilterBarProps {
   filters: FilterState;
@@ -56,9 +56,9 @@ const FilterBar: React.FC<FilterBarProps> = ({ filters, onFilterChange, categori
             onChange={(e) => onFilterChange({ ...filters, completed: e.target.value })}
             className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white"
           >
-            <option value="">All Problems</option>
-            <option value="completed">Completed</option>
-            <option value="incomplete">Not Completed</option>
+            <option value={CompletionStatus.All}>All Problems</option>
+            <option value={CompletionStatus.Completed}>Completed</option>
+            <option value={CompletionStatus.Incomplete}>Not Completed</option>
           </select>
           
           {hasActiveFilters && (
