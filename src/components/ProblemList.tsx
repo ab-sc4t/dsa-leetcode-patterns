@@ -40,22 +40,22 @@ const ProblemList: React.FC<ProblemListProps> = ({ problems, onToggleComplete })
 const ProblemItem: React.FC<ProblemItemProps> = ({ problem, onToggleComplete }) => {
   return (
     <div className="flex items-center justify-between p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
-      <a
-        href={problem.leetcodeUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-shrink-0 p-2 text-gray-400 hover:text-blue-600 transition-colors ml-4 w-full"
-      >
-        <div className="flex items-center space-x-4 flex-1">
-          <button
-            onClick={onToggleComplete}
-            className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${problem.completed
-              ? 'bg-green-500 border-green-500 text-white'
-              : 'border-gray-300 hover:border-green-400'
-              }`}
-          >
-            {problem.completed && <CheckCircle className="h-4 w-4" />}
-          </button>
+      <div className="flex items-center space-x-4 flex-1">
+        <button
+          onClick={onToggleComplete}
+          className={`flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${problem.completed
+            ? 'bg-green-500 border-green-500 text-white'
+            : 'border-gray-300 hover:border-green-400'
+            }`}
+        >
+          {problem.completed && <CheckCircle className="h-4 w-4" />}
+        </button>
+        <a
+          href={problem.leetcodeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 p-2 text-gray-400 hover:text-blue-600 transition-colors ml-4 w-full"
+        >
           <div className="flex-1 min-w-0">
             <div className="flex items-center space-x-3 mb-2">
               <span className="text-sm font-medium text-gray-500">#{problem.id}</span>
@@ -87,8 +87,8 @@ const ProblemItem: React.FC<ProblemItemProps> = ({ problem, onToggleComplete }) 
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   );
 };
