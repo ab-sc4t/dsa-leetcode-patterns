@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <ul className="space-y-2">
               <li>
-                <a href="https://github.com/ab-sc4t/dsa-leetcode-patterns" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2">
+                <a href="https://github.com/ab-sc4t" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2">
                   <Github className="h-4 w-4" />
                   <span>GitHub</span>
                 </a>
